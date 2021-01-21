@@ -8,13 +8,13 @@ Apesar de ter tecnologias recomendadas no corpo do teste, optei por fazer alguma
 
 A UI nao foi totalmente clonada do Figma por questao de pouco tempo que me deram para fazer o teste :(
 
-Entao foquei mais em qualidade estrutural, de servicoes e de teste de UI com Storybook :)
+Entao foquei mais em qualidade estrutural, de servicos e de teste de UI com Storybook :)
 
 **Gerenciamento de Estado**
 
 ## Store
 
-A Store é responsável pelo gerenciamento de estados no Ivar. O gerenciamento de estado é a consistência de comportamentos, dados e mudanças da nossa aplicação, ou seja, é responsável pelas mudanças de UI, gerenciamentos de input, momentos em que se encontra um determinado dado na memoria.
+A Store é responsável pelo gerenciamento de estados no Tribe. O gerenciamento de estado é a consistência de comportamentos, dados e mudanças da nossa aplicação, ou seja, é responsável pelas mudanças de UI, gerenciamentos de input, momentos em que se encontra um determinado dado na memoria.
 
 No desenvolvimento da Store utilizamos duas API do React que é o [ContextApi](https://reactjs.org/docs/context.html) e o [hooks](https://reactjs.org/docs/hooks-intro.html) que está implementada no arquivo `createUseContext.tsx`. Ele é responsável por criar a nossa store. Vale ressaltar que podemos ter várias store que recebem o conceito de modulo.
 
