@@ -78,7 +78,7 @@ Visitando `http://localhost:3000/` no browser, você irá acessar o Jokenorris!
 
 Para o app funcionar corretamente, navegue até src/backend e starte o backend com o com:
 
-    npx json-server --watch db.json
+    npx json-server -p 5000 --watch db.json
 
 **UI Testing**
 
