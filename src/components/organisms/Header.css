@@ -1,0 +1,10 @@
+.site-header {
+    height: 60px;
+    background: linear-gradient(95.76deg, #E57728 -8.84%, #E5A858 49.4%, #84C167 106.44%);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    margin-bottom: 35px;
+}   

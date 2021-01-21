@@ -1,0 +1,13 @@
+{
+    "posts": [
+      { "id": 1, "title": "Como arrasar na Selfie", "text": "10 blogueiras de moda falam de dicas para fotos no Instagram.", "imageUrl": "https://www.dicasdemulher.com.br/wp-content/uploads/2015/01/blogueiras-de-moda-para-seguir-no-instagram-1200x738.jpg" },
+      { "id": 2, "title": "Dicas de React", "text": "10 dicas matadoras para iniciantes ou profissionais.", "imageUrl": "https://miro.medium.com/max/3840/1*vHHBwcUFUaHWXntSnqKdCA.png" },
+      { "id": 3, "title": "Quem será o Campeao Brasileiro de 2020?", "text": "Disputa acirrada faz com que incerteza tome conta dos palpites.", "imageUrl": "https://images.daznservices.com/di/library/GOAL/b8/fd/taca-trofeu-campeonato-brasileiro-brasileirao-2018_1sms7gzewcnj51hiauvd22eqx7.jpg?t=1407969082&quality=100" },
+      { "id": 4, "title": "10 melhores jogos do ano em 2020", "text": "Jogos multiplataforma dominam a lista feita pelos nossos gamers.", "imageUrl": "https://cdn2.unrealengine.com/Diesel%2Fblog%2Faccount-security-at-epic-games%2FEGS_Social_Update_News-2560x1440-128a69890d92407b815582c1deba54450e5645f9.jpg" },
+      { "id": 5, "title": "Vacina chega ao Brasil!", "text": "Profissionais de saúde serao prioridade no princípio da campanha.", "imageUrl": "https://ogimg.infoglobo.com.br/in/24837577-47d-5e0/FT1086A/652/xheader-vacina.jpg.pagespeed.ic.jmKmxcwT8N.jpg" }
+    ],
+    "login": [
+      { "id": 1, "name": "Victor Rodriguez", "photoURL": "https://scontent.fcgh28-1.fna.fbcdn.net/v/t1.0-9/130251224_2818521645094154_1218634295941458462_o.jpg?_nc_cat=111&ccb=2&_nc_sid=09cbfe&_nc_ohc=aknvxDRfRVIAX9mgcov&_nc_ht=scontent.fcgh28-1.fna&oh=e309fbde1ec6f107f8dba2829d247237&oe=602FFF8E" }
+    ],
+    "profile": { "name": "typicode" }
+  }

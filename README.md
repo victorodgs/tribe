@@ -1,46 +1,94 @@
-# Getting Started with Create React App
+## Tribe
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esse é um projeto criado para demonstrar skills com React e Storybook. Siga os passos para ter a aplicação rodando em ambiente local.
 
-## Available Scripts
+**Algumas Consideracoes**
 
-In the project directory, you can run:
+Apesar de ter tecnologias recomendadas no corpo do teste, optei por fazer algumas adequacoes para mostrar o poder e eficiencia do React sem libs externas, como Redux e Redux Saga, fazendo um modelo bem leve e eficiente de gerenciamento de estado.
 
-### `npm start`
+A UI nao foi totalmente clonada do Figma por questao de pouco tempo que me deram para fazer o teste :(
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Entao foquei mais em qualidade estrutural, de servicoes e de teste de UI com Storybook :)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+**Gerenciamento de Estado**
 
-### `npm test`
+## Store
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+A Store é responsável pelo gerenciamento de estados no Ivar. O gerenciamento de estado é a consistência de comportamentos, dados e mudanças da nossa aplicação, ou seja, é responsável pelas mudanças de UI, gerenciamentos de input, momentos em que se encontra um determinado dado na memoria.
 
-### `npm run build`
+No desenvolvimento da Store utilizamos duas API do React que é o [ContextApi](https://reactjs.org/docs/context.html) e o [hooks](https://reactjs.org/docs/hooks-intro.html) que está implementada no arquivo `createUseContext.tsx`. Ele é responsável por criar a nossa store. Vale ressaltar que podemos ter várias store que recebem o conceito de modulo.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Conceitualmente implementamos a arquitetura flux utilizando estas APIs.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![enter image description here](https://raw.githubusercontent.com/victorodgs/ivar/master/docs/assets/flux-ivar.png?token=AFQ5HKH6OV2RJ4VQRZME6V3ABFLDE)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Para salientar Actions e Selectors abaixo é possível ver alguns exemplos para enfatizar ainda mais os conceitos:
 
-### `npm run eject`
+**Actions**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+É similar ao `set`. Faz a inserção ou alteração de um dado no state, podendo ter comunicação com a camada dos serviços.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```ts
+const sum = (num: number) => {
+  setState(({sum}) => ({sum: sum + num}));
+};
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**Selectors**
+É similar ao `get`. Pega um valor do state, podendo fazer ou não manipulação dos dados para a View. O objetivo dos selectors é fazer toda e qualquer complexidade, isolando lógica dos componentes de View. Afinal view é apenas para tratar UI e comportamentos de UI.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```ts
+const sumWithFormatBrl = () => {
+  return `R$ ${$state.sum},00`;
+};
+```
 
-## Learn More
+**Organização dos arquivos**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+├── ...
+├── store ---> #pasta contendo os módulos da store
+│ ├── module ---> # módulo
+│ │ ├── actions ---> # mutações e ações
+│ │ ├── constants ---> # constantes, nada mais. Ele deve ser usado pelo selector
+│ │ ├── index ---> # Criação de todo o rolê
+│ │ ├── selectors ---> # computação e complexidade
+│ │ ├── state ---> # initial state e interface State
+├── ...
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Necessário ter instalado na sua máquina:**
+
+- Node.js 6+
+- Yarn. Usamos Yarn ao invés do NPM, por se integrar melhor ao React.
+
+Clone o repositório e no terminal execute os passos a seguir
+
+1 - Baixe as dependências
+
+    yarn install
+
+2 - "Starte" o servidor :)
+
+       yarn start
+
+Visitando `http://localhost:3000/` no browser, você irá acessar o Jokenorris!
+
+**IMPORTANTE**
+
+Para o app funcionar corretamente, navegue até src/backend e starte o backend com o com:
+
+    npx json-server --watch db.json
+
+**UI Testing**
+
+Usamos Storybook para fazer testes de UI na aplicação. Assim, podemos saber como os componentes que sofrem mutação se comportam com diferentes entradas de dados.
+Você pode conferir e escrever novas histórias na pasta `src/stories`
+
+**Para acessar o Storybook, utilize o comando**
+
+    yarn storybook
+
+Abra o browser no endereço `http://localhost:9009/` e irá acessar uma página como essa
+
+![enter image description here](https://i.imgur.com/6MHxQ0A.png)
